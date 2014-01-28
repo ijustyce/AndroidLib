@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/pw"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#F000"
+        android:textSize="27sp" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="12dp" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="12dp" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:stretchColumns="*" >
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/num1"
+                android:onClick="btClick"
+                android:text="1" />
+
+            <Button
+                android:id="@+id/num2"
+                android:onClick="btClick"
+                android:text="2" />
+
+            <Button
+                android:id="@+id/num3"
+                android:onClick="btClick"
+                android:text="3" />
+
+            <Button
+                android:id="@+id/del"
+                android:onClick="btClick"
+                android:text="@string/del" />
+        </TableRow>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="12dp" />
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/num4"
+                android:onClick="btClick"
+                android:text="4" />
+
+            <Button
+                android:id="@+id/num5"
+                android:onClick="btClick"
+                android:text="5" />
+
+            <Button
+                android:id="@+id/num6"
+                android:onClick="btClick"
+                android:text="6" />
+
+            <Button
+                android:id="@+id/ok"
+                android:onClick="btClick"
+                android:text="@string/ok" />
+        </TableRow>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="12dp" />
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/num7"
+                android:onClick="btClick"
+                android:text="7" />
+
+            <Button
+                android:id="@+id/num8"
+                android:onClick="btClick"
+                android:text="8" />
+
+            <Button
+                android:id="@+id/num9"
+                android:onClick="btClick"
+                android:text="9" />
+
+            <Button
+                android:id="@+id/num0"
+                android:onClick="btClick"
+                android:text="0" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

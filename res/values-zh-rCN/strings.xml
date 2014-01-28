@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">安全通讯录</string>
+    <string name="hello_world">Hello world!</string>
+
+    <!-- txApplication -->
+    <string name="copy_success">复制成功</string>
+
+    <!-- settings -->
+    <string name="summary">必选*</string>
+    <string name="anim">窗口切换动画</string>
+    <string name="theme">主题</string>
+    <string name="lock">程序锁</string>
+
+    <!-- about -->
+    <string name="txh_version">安全通讯录 1.0</string>
+
+    <!-- feedback -->
+    <string name="submit">提交</string>
+    <string name="contact">联系方式</string>
+    <string name="msg">反馈内容</string>
+    <string name="dialog_title">请稍后</string>
+    <string name="dialog_content">正在提交，请稍后</string>
+    <string name="error_feedback">输入不能为空</string>
+
+    <!-- baseclass -->
+    <string name="sign_fail">不是原版软件，建议您卸载。</string>
+    
+    <!-- password -->
+    <string name="hint">请输入您的密码：</string>
+    <string name="ok">确定</string>
+    <string name="del">回退</string>
+    <string name="pw_success">欢迎使用</string>
+    <string name="pw_error">解锁出错</string>
+    <string name="pw_wait">超过三次错误，程序即将退出</string>
+    <string name="pw_set">请先设置您的密码</string>
+
+</resources>

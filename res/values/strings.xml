@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Contacts</string>
+    <string name="hello_world">Hello world!</string>
+
+    <!-- txApplication -->
+    <string name="copy_success">copy success</string>
+
+    <!-- settings -->
+    <string name="summary">must*</string>
+    <string name="anim">Windows animation</string>
+    <string name="theme">Application theme</string>
+    <string name="lock">Application locker</string>
+
+    <!-- about -->
+    <string name="txh_version">tx-Contacts 1.0</string>
+    <string name="about_txh">powered by bbs.ijustyce.com</string>
+
+    <!-- feedback -->
+    <string name="submit">submit</string>
+    <string name="contact">contact</string>
+    <string name="msg">content</string>
+    <string name="dialog_title">please wait</string>
+    <string name="dialog_content">please wait some seconds…</string>
+    <string name="error_feedback">input can not be empty</string>
+
+    <!-- baseclass -->
+    <string name="sign_fail">Not the original software,uninstall is needed.</string>
+    
+    <!-- password -->
+    <string name="hint">please input your password</string>
+    <string name="ok">OK</string>
+    <string name="del">delete</string>
+    <string name="pw_success">success</string>
+    <string name="pw_error">error</string>
+    <string name="pw_wait">Error than 3 times , exit application</string>
+    <string name="pw_set">please set your password</string>
+
+    <!-- 以下是自定义的颜色 -->
+
+    <color name="bkcolor">#33CCFF</color>
+    <drawable name="newmessage">#FFF</drawable>
+
+</resources>
