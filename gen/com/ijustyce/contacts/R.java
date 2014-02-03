@@ -60,6 +60,7 @@ public final class R {
         public static final int txh=0x7f020006;
     }
     public static final class id {
+        public static final int bottom_info_layout=0x7f0b001e;
         public static final int bt1=0x7f0b0002;
         public static final int bt10=0x7f0b000b;
         public static final int bt2=0x7f0b0003;
@@ -70,8 +71,13 @@ public final class R {
         public static final int bt7=0x7f0b0008;
         public static final int bt8=0x7f0b0009;
         public static final int bt9=0x7f0b000a;
+        public static final int btn_lock_nopin=0x7f0b001f;
         public static final int contact=0x7f0b000c;
         public static final int del=0x7f0b0012;
+        public static final int lock_paint=0x7f0b0020;
+        public static final int lock_paint_layout=0x7f0b001d;
+        public static final int lock_title_user_photo=0x7f0b001b;
+        public static final int lock_user_info=0x7f0b001c;
         public static final int msg=0x7f0b000d;
         public static final int num0=0x7f0b001a;
         public static final int num1=0x7f0b000f;
@@ -93,7 +99,8 @@ public final class R {
         public static final int activity_main=0x7f030001;
         public static final int feedback=0x7f030002;
         public static final int lock=0x7f030003;
-        public static final int preference=0x7f030004;
+        public static final int lock_screen_layout=0x7f030004;
+        public static final int preference=0x7f030005;
     }
     public static final class string {
         public static final int about_txh=0x7f080008;
@@ -116,6 +123,11 @@ public final class R {
         public static final int lock=0x7f080006;
         public static final int msg=0x7f08000b;
         public static final int ok=0x7f080011;
+        public static final int pass_affirm=0x7f08001a;
+        public static final int pass_affirm_error=0x7f08001b;
+        public static final int pass_first=0x7f080019;
+        public static final int pass_hint=0x7f080017;
+        public static final int pass_info=0x7f080018;
         public static final int pw_error=0x7f080014;
         public static final int pw_set=0x7f080016;
         public static final int pw_success=0x7f080013;

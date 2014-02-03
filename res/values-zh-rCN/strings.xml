@@ -35,5 +35,10 @@
     <string name="pw_error">解锁出错</string>
     <string name="pw_wait">超过三次错误，程序即将退出</string>
     <string name="pw_set">请先设置您的密码</string>
+    <string name="pass_hint">手势无法找回，请牢记</string>
+    <string name="pass_info">请绘制手势以解锁</string>
+    <string name="pass_first">请绘制您的手势</string>
+    <string name="pass_affirm">请确认您的手势</string>
+    <string name="pass_affirm_error">两次手势不一致，请重新绘制</string>
 
 </resources>

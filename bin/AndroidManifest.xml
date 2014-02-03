@@ -8,8 +8,6 @@
         android:minSdkVersion="14"
         android:targetSdkVersion="18" />
 
-    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
-
     <application
         android:name=".txApplication"
         android:allowBackup="true"

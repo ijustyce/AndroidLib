@@ -150,8 +150,7 @@ public class txApplication extends Application {
 	
 	public String getAnim(){
 		
-		SharedPreferences myshared = getSharedPreferences(
-				"com.txh.sms_preferences", Context.MODE_PRIVATE);
+		SharedPreferences myshared = getSharedPreferences();
 		String anim = myshared.getString("anim", "ubuntu");
 		Log.i(tag, "anim: "+anim);
 		return anim;

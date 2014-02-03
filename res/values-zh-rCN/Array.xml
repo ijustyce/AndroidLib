@@ -34,10 +34,12 @@
 <string-array name="lock">
 <item>无</item>
 <item>密码</item>
+<item>手势</item>
 </string-array>
 <string-array name="lockValue">
 <item>null</item>
 <item>password</item>
+<item>gesture</item>
 </string-array>
 
 </resources> 

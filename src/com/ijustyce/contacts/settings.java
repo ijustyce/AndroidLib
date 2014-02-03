@@ -78,7 +78,15 @@ public class settings extends PreferenceActivity implements
 			preference.getEditor().putString("lock", newValue.toString())
 					.commit();
 			
-			if(!newValue.toString().equals("null")){
+			if(newValue.toString().equals("gesture")){
+				
+				tx.setPreferences("gesture", "null", "pass");
+				tx.pw = false;
+				startActivity(new Intent(this, MainActivity.class));
+				this.finish();
+			}
+			
+			else if(!newValue.toString().equals("null")){
 				
 				String pw = tx.getStringValue(R.string.pw_set);
 				String ok = tx.getStringValue(R.string.ok);

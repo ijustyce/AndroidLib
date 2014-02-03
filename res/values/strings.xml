@@ -36,6 +36,11 @@
     <string name="pw_error">error</string>
     <string name="pw_wait">Error than 3 times , exit application</string>
     <string name="pw_set">please set your password</string>
+    <string name="pass_hint">plase remember your gesture</string>
+    <string name="pass_info">please unlock</string>
+    <string name="pass_first">draw your gesture</string>
+    <string name="pass_affirm">affirm your gesture</string>
+    <string name="pass_affirm_error">inconformity</string>
 
     <!-- 以下是自定义的颜色 -->
 
