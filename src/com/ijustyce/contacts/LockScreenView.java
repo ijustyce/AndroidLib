@@ -23,18 +23,18 @@ public class LockScreenView extends View{
 	private int startY;
 	private Paint linePaint;
 	private Paint circlePaint;
-	private int viewWidth;		//¿Ø¼þµÄ¿í
-	private int viewHeight;		//¿Ø¼þµÄ¸ß
+	private int viewWidth;		//ï¿½Ø¼ï¿½ï¿½Ä¿ï¿½
+	private int viewHeight;		//ï¿½Ø¼ï¿½ï¿½Ä¸ï¿½
 	private int radius;
 	
-	private PointF[][] centerCxCy;	//Ô²ÐÄ¾ØÕó
-	private int[][] data;		//ÃÜÂëÊý¾Ý¾ØÕó
-	private boolean[][] selected;	//ÒÑÑ¡¾ØÕó Ñ¡ÖÐÖ®ºó²»ÄÜÖØÑ¡
-	private List<PointF> selPointList;	//Ñ¡ÖÐµÄÔ²ÖÐµã¼¯ºÏ
+	private PointF[][] centerCxCy;	//Ô²ï¿½Ä¾ï¿½ï¿½ï¿½
+	private int[][] data;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¾ï¿½ï¿½ï¿½
+	private boolean[][] selected;	//ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ Ñ¡ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡
+	private List<PointF> selPointList;	//Ñ¡ï¿½Ðµï¿½Ô²ï¿½Ðµã¼¯ï¿½ï¿½
 	
 	private boolean isPressedDown = false;
 	
-	private String lockPin="";	//½á¹ûËøÆÁÃÜÂë×Ö·û´®
+	private String lockPin="";	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½
 
 	public LockScreenView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
@@ -55,15 +55,15 @@ public class LockScreenView extends View{
 		// TODO Auto-generated method stub
 		linePaint = new Paint();
 //		linePaint.setColor(Color.rgb(255, 110, 2));
-//		linePaint.setStrokeWidth(15);	//»­±Ê¿í¶È
-		linePaint.setStyle(Style.FILL);		//»­±ÊÑùÊ½
+//		linePaint.setStrokeWidth(15);	//ï¿½ï¿½ï¿½Ê¿ï¿½ï¿½
+		linePaint.setStyle(Style.FILL);		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
 		linePaint.setAntiAlias(true);
 		
 		circlePaint = new Paint();
 //		circlePaint.setColor(Color.rgb(155, 160, 170));
 		circlePaint.setStrokeWidth(4);
 		circlePaint.setAntiAlias(true);
-		circlePaint.setStyle(Style.STROKE);  //»­±ÊÑùÊ½¿ÕÐÄ
+		circlePaint.setStyle(Style.STROKE);  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½
 		
 		centerCxCy = new PointF[3][3];
 		data = new int[3][3];
@@ -72,7 +72,7 @@ public class LockScreenView extends View{
 		initData();
 	}
 	
-	//Çå³ýÑ¡ÖÐ¼ÇÂ¼
+	//ï¿½ï¿½ï¿½Ñ¡ï¿½Ð¼ï¿½Â¼
 	private void clearSelected(){
 		for(int i=0;i<selected.length;i++){
 			for(int j=0;j<selected.length;j++){
@@ -92,7 +92,7 @@ public class LockScreenView extends View{
 		}
 	}
 	
-	//ÅÐ¶ÏÊÇ·ñÔÚÄ³¸öÔ²ÄÚ
+	//ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ä³ï¿½ï¿½Ô²ï¿½ï¿½
 	private boolean isInCircle(PointF p, int x,int y){
 		int distance = (int)Math.sqrt((p.x-x)*(p.x-x)+(p.y-y)*(p.y-y));
 		if(distance <= radius){
@@ -105,36 +105,36 @@ public class LockScreenView extends View{
 	@Override
 	protected void onDraw(Canvas canvas) {
 		// TODO Auto-generated method stub
-		linePaint.setStrokeWidth(2*radius/3-2);		//»­±Ê¿í¶È
+		linePaint.setStrokeWidth(2*radius/3-2);		//ï¿½ï¿½ï¿½Ê¿ï¿½ï¿½
 		
-		//ÊÖÊÆ¿ªÊ¼Ç°µÄ»­Ô²
+		//ï¿½ï¿½ï¿½Æ¿ï¿½Ê¼Ç°ï¿½Ä»ï¿½Ô²
 		for(int i=0;i<selected[0].length;i++){
 			for(int j=0;j<selected[0].length;j++){
 				PointF center = centerCxCy[i][j];
-				if(selected[i][j]){		//ÊÇ·ñÑ¡ÖÐ
-					circlePaint.setColor(Color.rgb(255, 110, 2));	//»¬¶¯µ½Ô²ÄÚÊ±ÉèÖÃ»ÆÉ«»­±Ê
+				if(selected[i][j]){		//ï¿½Ç·ï¿½Ñ¡ï¿½ï¿½
+					circlePaint.setColor(Color.rgb(255, 110, 2));	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ã»ï¿½É«ï¿½ï¿½ï¿½ï¿½
 					linePaint.setColor(Color.rgb(255, 110, 2));
-					canvas.drawCircle(center.x, center.y, radius/3, linePaint); //Ñ¡ÖÐÊ±µÄÊµÐÄÄÚÔ²
+					canvas.drawCircle(center.x, center.y, radius/3, linePaint); //Ñ¡ï¿½ï¿½Ê±ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½Ô²
 					linePaint.setColor(Color.argb(96,255, 110, 2));
-					canvas.drawCircle(center.x, center.y, radius, linePaint); //Ñ¡ÖÐÊ±µÄÍâÔ²°ëÍ¸Ã÷Ìî³ä
+					canvas.drawCircle(center.x, center.y, radius, linePaint); //Ñ¡ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½Í¸ï¿½ï¿½ï¿½ï¿½ï¿½
 				}else{
-					circlePaint.setColor(Color.rgb(155, 160, 170));  //·ñÔòÉèÖÃ»Ò°×É«»­±Ê
+					circlePaint.setColor(Color.rgb(155, 160, 170));  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»Ò°ï¿½É«ï¿½ï¿½ï¿½ï¿½
 				}
-				canvas.drawCircle(center.x, center.y, radius, circlePaint);  //»­ÍâÔ²
+				canvas.drawCircle(center.x, center.y, radius, circlePaint);  //ï¿½ï¿½ï¿½ï¿½Ô²
 			}
 		}
 		
 		linePaint.setColor(Color.argb(96,255, 110, 2));
-		//»­ÏßÌõÂ·¾¶
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 		if(isPressedDown){
-			for(int i=0;i<selPointList.size()-1;i++){		//»­ÒÑÑ¡ÖÐÔ²Ö®¼äµÄÂ·¾¶
-				PointF preCenter = selPointList.get(i);		//Ç°Ò»¸öÔ²ÖÐµã
-				PointF curCenter = selPointList.get(i+1);	//ÏÖÔÚÔ²ÖÐµã
+			for(int i=0;i<selPointList.size()-1;i++){		//ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½Ô²Ö®ï¿½ï¿½ï¿½Â·ï¿½ï¿½
+				PointF preCenter = selPointList.get(i);		//Ç°Ò»ï¿½ï¿½Ô²ï¿½Ðµï¿½
+				PointF curCenter = selPointList.get(i+1);	//ï¿½ï¿½ï¿½ï¿½Ô²ï¿½Ðµï¿½
 				canvas.drawLine(preCenter.x, preCenter.y, curCenter.x, curCenter.y, linePaint);
 			}
 			
 			if(selPointList.size()>0){
-				PointF center = selPointList.get(selPointList.size()-1); //×îºóÒ»¸öÑ¡ÖÐÔ²ÖÐµã
+				PointF center = selPointList.get(selPointList.size()-1); //ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ñ¡ï¿½ï¿½Ô²ï¿½Ðµï¿½
 				canvas.drawLine(center.x, center.y, endX, endY, linePaint);
 			}
 		
@@ -159,7 +159,7 @@ public class LockScreenView extends View{
 		super.onLayout(changed, left, top, right, bottom);
 	}
 
-	//ÉèÖÃÔ²µÄ°ë¾¶ºÍÔ²ÐÄ
+	//ï¿½ï¿½ï¿½ï¿½Ô²ï¿½Ä°ë¾¶ï¿½ï¿½Ô²ï¿½ï¿½
 	private void setRadius() {
 
 		int w = viewWidth/3;	
@@ -184,7 +184,7 @@ public class LockScreenView extends View{
 	
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		// µÃµ½´¥ÃþµãµÄ×ø±ê
+		// ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		int pin=0;
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
@@ -234,7 +234,7 @@ public class LockScreenView extends View{
 		for(int i=0;i<data[0].length;i++){
 			for(int j=0;j<data[0].length;j++){
 				PointF center = centerCxCy[i][j];
-				if(isInCircle(center, x, y)){	//ÅÐ¶ÏÊÇ·ñÔÚÔ²ÄÚ
+				if(isInCircle(center, x, y)){	//ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ô²ï¿½ï¿½
 					if(!selected[i][j]){
 						selected[i][j] = true;
 						selPointList.add(center);

@@ -29,7 +29,7 @@ public class baseclass extends Activity {
 		tx = (txApplication) getApplication();
 		tx.theme(baseclass.this);
 
-		String lock = tx.getPreferences("lock", tx.getSharedPreferencesName());
+		String lock = tx.getPreferences("lock", "pass");
 		Log.i("lock", lock);
 		if (!lock.equals("null")&&!tx.pw) {
 

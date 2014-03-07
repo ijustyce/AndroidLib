@@ -34,7 +34,7 @@ public class Password extends Activity {
 			if (lock.equals("password")) {
 				setContentView(R.layout.lock);
 				tv = (TextView) findViewById(R.id.pw);
-				password = tx.getPreferences("lock", "pass");
+				password = tx.getPreferences("password", "pass");
 			} else if (lock.equals("gesture")) {
 				setContentView(R.layout.lock_screen_layout);
 				password = tx.getPreferences("gesture", "pass");
@@ -53,11 +53,15 @@ public class Password extends Activity {
 		password = "";
 		first = true;
 	}
-
+	
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 
-		exit("cancel");
-		return true;
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			
+			tx.setPreferences("lock", "null", "pass");
+			exit("cancel");
+		}
+		return super.onKeyDown(keyCode, event);
 	}
 
 	public void btClick(View v) {

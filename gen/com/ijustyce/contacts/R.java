@@ -128,6 +128,7 @@ public final class R {
         public static final int pass_first=0x7f080019;
         public static final int pass_hint=0x7f080017;
         public static final int pass_info=0x7f080018;
+        public static final int pass_short=0x7f08001c;
         public static final int pw_error=0x7f080014;
         public static final int pw_set=0x7f080016;
         public static final int pw_success=0x7f080013;

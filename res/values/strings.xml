@@ -41,6 +41,7 @@
     <string name="pass_first">draw your gesture</string>
     <string name="pass_affirm">affirm your gesture</string>
     <string name="pass_affirm_error">inconformity</string>
+    <string name="pass_short">password to short</string>
 
     <!-- 以下是自定义的颜色 -->
 

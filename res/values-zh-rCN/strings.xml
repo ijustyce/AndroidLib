@@ -40,5 +40,6 @@
     <string name="pass_first">请绘制您的手势</string>
     <string name="pass_affirm">请确认您的手势</string>
     <string name="pass_affirm_error">两次手势不一致，请重新绘制</string>
+    <string name="pass_short">密码太短，请重新输入</string>
 
 </resources>

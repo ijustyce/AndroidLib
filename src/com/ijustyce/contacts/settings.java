@@ -3,8 +3,6 @@
  * settings */
 package com.ijustyce.contacts;
 
-import com.txh.Api.md5;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,10 +14,14 @@ import android.preference.PreferenceActivity;
 import android.view.KeyEvent;
 import android.widget.EditText;
 
+import com.txh.Api.md5;
+
 public class settings extends PreferenceActivity implements
 		OnPreferenceChangeListener {
 	/** Called when the activity is first created. */
 	private txApplication tx;
+	
+	boolean finish = false;  //   is password set finish  
 
 	@SuppressWarnings("deprecation")
 	@Override
@@ -38,6 +40,7 @@ public class settings extends PreferenceActivity implements
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			tx.setPreferences("lock", "null", "pass");
 			startActivity(new Intent(this, MainActivity.class));
 			anim();
 			this.finish();
@@ -75,10 +78,19 @@ public class settings extends PreferenceActivity implements
 
 		if (preference.getKey().equals("lock")) {
 
-			preference.getEditor().putString("lock", newValue.toString())
-					.commit();
+			String type = newValue.toString();
+			if(!type.equals("null")&&!type.equals("password")
+					&&!type.equals("gesture")){
+				
+				return false;
+			}
 			
-			if(newValue.toString().equals("gesture")){
+			// unlock info saved in pass.xml , password or gesture can 
+			// be accessed by key lock , if password can be accessed
+			// by key password , and gesture too .
+			
+			tx.setPreferences("lock", type, "pass");
+			if(type.equals("gesture")){
 				
 				tx.setPreferences("gesture", "null", "pass");
 				tx.pw = false;
@@ -88,25 +100,36 @@ public class settings extends PreferenceActivity implements
 			
 			else if(!newValue.toString().equals("null")){
 				
-				String pw = tx.getStringValue(R.string.pw_set);
-				String ok = tx.getStringValue(R.string.ok);
-				final EditText et = new EditText (this);
-				et.setInputType(2);
-				new AlertDialog.Builder(settings.this).setTitle(pw)
-				.setIcon(android.R.drawable.ic_dialog_info)
-				.setView(et)
-				.setPositiveButton(ok, new DialogInterface.OnClickListener() {
-					
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
-						String password = et.getText().toString();
-						tx.showToast(password);
-						tx.setPreferences("lock", md5.afterMd5(password), "pass");
-					}
-				}).show();
+				setPassword();
 			}
 		}
 		return true;
+	}
+	
+	private void setPassword(){
+		
+		String pw = tx.getStringValue(R.string.pw_set);
+		String ok = tx.getStringValue(R.string.ok);
+		final EditText et = new EditText (this);
+		et.setInputType(2);
+		new AlertDialog.Builder(settings.this).setTitle(pw)
+		.setIcon(android.R.drawable.ic_dialog_info)
+		.setView(et)
+		.setPositiveButton(ok, new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				String password = et.getText().toString();
+				if(password.length()<5){
+					tx.showToast(R.string.pass_short);
+					setPassword();
+				}
+				else{
+					tx.showToast(password);
+					tx.setPreferences("password", md5.afterMd5(password), "pass");
+				}
+			}
+		}).show();
 	}
 }
