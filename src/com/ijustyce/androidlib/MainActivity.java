@@ -12,7 +12,7 @@ public class MainActivity extends baseclass {
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.androidlib_activity_main);
 
 		tx = (txApplication) getApplication();
 		init();

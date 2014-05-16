@@ -7,7 +7,7 @@
         android:entries="@array/lock"
         android:entryValues="@array/lockValue"
         android:key="lock"
-        android:layout="@layout/setting_preference"
+        android:layout="@layout/androidlib_setting_preference"
         android:summary="@string/summary"
         android:title="@string/lock" />
   
@@ -16,7 +16,7 @@
         android:entries="@array/anim"
         android:entryValues="@array/animValue"
         android:key="anim"
-        android:layout="@layout/setting_preference"
+        android:layout="@layout/androidlib_setting_preference"
         android:summary="@string/summary"
         android:title="@string/anim" />
   
@@ -25,7 +25,7 @@
         android:entries="@array/theme"
         android:entryValues="@array/themeValue"
         android:key="theme"
-        android:layout="@layout/setting_preference"
+        android:layout="@layout/androidlib_setting_preference"
         android:summary="@string/summary"
         android:title="@string/theme" />
 
