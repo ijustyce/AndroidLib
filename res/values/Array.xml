@@ -33,12 +33,10 @@
 
 <string-array name="lock">
 <item>null</item>
-<item>password</item>
 <item>gesture</item>
 </string-array>
 <string-array name="lockValue">
 <item>null</item>
-<item>password</item>
 <item>gesture</item>
 </string-array>
 

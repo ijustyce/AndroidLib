@@ -3,7 +3,7 @@
     android:title="@string/app_name" >
 
     <ListPreference
-        android:defaultValue="@array/lock"
+        android:defaultValue="gesture"
         android:entries="@array/lock"
         android:entryValues="@array/lockValue"
         android:key="lock"
@@ -12,7 +12,7 @@
         android:title="@string/lock" />
   
     <ListPreference
-        android:defaultValue="@array/anim"
+        android:defaultValue="zoom"
         android:entries="@array/anim"
         android:entryValues="@array/animValue"
         android:key="anim"
@@ -21,7 +21,7 @@
         android:title="@string/anim" />
   
     <ListPreference
-        android:defaultValue="@array/theme"
+        android:defaultValue="pure"
         android:entries="@array/theme"
         android:entryValues="@array/themeValue"
         android:key="theme"

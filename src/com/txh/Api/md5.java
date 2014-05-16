@@ -1,4 +1,7 @@
-
+/**
+ * md5 function
+ * date : 2014-04-21
+ */
 package com.txh.Api;
 
 import java.security.MessageDigest;
