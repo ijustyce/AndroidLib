@@ -2,3 +2,4 @@ gen
 bin
 proguard-project.txt
 project.properties
+proguard
