@@ -8,7 +8,8 @@ A framework of android development，including gestures to unlock and anim. Curr
 
 version is 2.0，3.0 version will released in June，and I will add follow function
 
-# 接下来的事情（TODO）：
+接下来的事情（TODO）：
+==========
 
 加入网络模块（add network model）
 
@@ -18,10 +19,11 @@ version is 2.0，3.0 version will released in June，and I will add follow funct
 
 加入slidingmenu（add slidingmenu）
 
-# 联系我（My contacts information）
+联系我（My contacts information）
+==========
 
 邮件（email）：ijustyce@163.com
 
-博客（blog）：blogijustyce.com
+博客（blog）：http://blog.ijustyce.com
 
 
