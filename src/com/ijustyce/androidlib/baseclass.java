@@ -14,8 +14,9 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.widget.Toast;
 
+import com.ijustyce.unit.LogCat;
+import com.ijustyce.unit.toast;
 import com.txh.Api.md5;
 
 public class baseclass extends Activity {
@@ -93,11 +94,9 @@ public class baseclass extends Activity {
 				String result = sign[0].toString().substring(29);
 				result = md5.afterMd5(result);
 				String original = "true";
-				if (!result.equals("3a380d267a4cfc99b45e49cc18af3829")) {
-					Toast.makeText(
-							this,
-							getResources().getString(R.string.sign_fail)
-									.toString(), Toast.LENGTH_LONG).show();
+				LogCat.i("===signed===", result);
+				if (!result.equals("5c104e2c4b1275d490700573aaa4c15e")) {
+					toast.show(R.string.sign_fail, getBaseContext());
 					original = "false";
 				}
 				String[] signInfo = { original, result };
@@ -119,7 +118,7 @@ public class baseclass extends Activity {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 
 			if (!className.equals("MainActivity")) {
-				startActivity(new Intent(this, MainActivity.class));
+				startActivity(txApplication.Main);
 				anim();
 			}
 			else if (className.equals("MainActivity")) {

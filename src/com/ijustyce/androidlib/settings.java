@@ -4,7 +4,6 @@
  */
 package com.ijustyce.androidlib;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -19,7 +18,6 @@ public class settings extends PreferenceActivity implements
 	
 	boolean finish = false;  //   is password set finish  
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
@@ -37,7 +35,7 @@ public class settings extends PreferenceActivity implements
 
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 		
-			startActivity(new Intent(this, MainActivity.class));
+			startActivity(txApplication.Main);
 			anim();
 			this.finish();
 		}
@@ -89,7 +87,7 @@ public class settings extends PreferenceActivity implements
 				
 				tx.setPreferences("gesture", "null", "pass");
 				tx.pw = false;
-				startActivity(new Intent(this, MainActivity.class));
+				startActivity(txApplication.Main);
 				this.finish();
 			}
 		}

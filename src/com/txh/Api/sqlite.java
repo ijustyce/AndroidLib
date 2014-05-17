@@ -9,10 +9,11 @@ package com.txh.Api;
 import java.io.File;
 import java.io.IOException;
 
+import com.ijustyce.unit.LogCat;
+
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 public class sqlite{
 	private static String tag = "txTag";
@@ -29,7 +30,7 @@ public class sqlite{
 		
 		while(use);
 		use = true;
-		Log.i(tag, "now dbFile in using ...");
+		LogCat.i(tag, "now dbFile in using ...");
 		File f = new File(dbFile);
 		if (!f.exists()){
 			try{
@@ -39,13 +40,13 @@ public class sqlite{
 			{}
 		}
 		mSQLiteDatabase = SQLiteDatabase.openOrCreateDatabase(f, null);
-		Log.i(tag, "openfile");
+		LogCat.i(tag, "openfile");
 	}
 	
 	private void closeDb() {
 		
 		use = false;
-		Log.i(tag, "now dbFile finish using ...");
+		LogCat.i(tag, "now dbFile finish using ...");
 		mSQLiteDatabase.close();
 	}
 	
@@ -67,10 +68,10 @@ public class sqlite{
     	sql = "create table if not exists " + table + " (_id INTEGER PRIMARY KEY, " + sql + 
     			value[value.length-1] + ");";
 		
-    	Log.i(tag, sql);
+    	LogCat.i(tag, sql);
     	mSQLiteDatabase.execSQL(sql);
 		closeDb();
-		Log.i(tag, "create table if not exist !");
+		LogCat.i(tag, "create table if not exist !");
 	}
 	
 	/**
@@ -91,7 +92,7 @@ public class sqlite{
 		}
 		mSQLiteDatabase.insert(table, null, cv);
 		closeDb();
-		Log.i(tag, "insert value to: "+table);
+		LogCat.i(tag, "insert value to: "+table);
 	}
 	
 	/**
@@ -115,7 +116,7 @@ public class sqlite{
 		}
 		mSQLiteDatabase.update(table, cv,sql,args);
 		closeDb();
-		Log.i(tag, "update value: "+table);
+		LogCat.i(tag, "update value: "+table);
 	}
 	
 	/**
@@ -133,7 +134,7 @@ public class sqlite{
 		
 		int i , j = 0;
 		openDb(dbFile);
-		Log.i("---Api---", sql);
+		LogCat.i("---Api---", sql);
 		cur = mSQLiteDatabase.rawQuery(sql, args);
 		String[][] result = new String[cur.getCount()][column.length];
 		if (cur.moveToFirst()) {
@@ -147,7 +148,7 @@ public class sqlite{
 		}
 		cur.close();
 		closeDb();
-		Log.i(tag, "get value of : "+table);
+		LogCat.i(tag, "get value of : "+table);
 		return result;
 	}
 	
@@ -163,7 +164,7 @@ public class sqlite{
 		
 		mSQLiteDatabase.delete(table, sql, args);
 		closeDb();
-		Log.i(tag, "delete value of :"+table);
+		LogCat.i(tag, "delete value of :"+table);
 	}
 	
 	/**
@@ -190,7 +191,7 @@ public class sqlite{
 		}
 		cur.close();
 		closeDb();
-		Log.i(tag, "check if exist value of :"+table);
+		LogCat.i(tag, "check if exist value of :"+table);
 		return result;
 	}
 	
@@ -217,7 +218,7 @@ public class sqlite{
 		}
 		cur.close();
 		closeDb();
-		Log.i(tag, "value of :"+table +" is contained :" + String.valueOf(result));
+		LogCat.i(tag, "value of :"+table +" is contained :" + String.valueOf(result));
 		return result;
 	}
 }

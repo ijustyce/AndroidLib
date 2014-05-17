@@ -3,12 +3,8 @@
  */
 package com.ijustyce.androidlib;
 
-import com.ijustyce.unit.toast;
-import com.txh.Api.JavaMail;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -17,6 +13,9 @@ import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
+
+import com.ijustyce.unit.toast;
+import com.txh.Api.JavaMail;
 
 public class feedback extends Activity{
 	
@@ -135,7 +134,7 @@ public class feedback extends Activity{
 	public boolean onKeyDown(int keyCode, KeyEvent event){
 		if (keyCode == KeyEvent.KEYCODE_BACK){
 			
-			startActivity(new Intent(this , MainActivity.class));
+			startActivity(txApplication.Main);
 			this.finish();
 		}
 		return super.onKeyDown(keyCode, event);

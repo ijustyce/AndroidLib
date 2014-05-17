@@ -4,6 +4,8 @@ package com.ijustyce.androidlib;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ijustyce.unit.LogCat;
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -11,7 +13,6 @@ import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.PointF;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -150,7 +151,7 @@ public class LockScreenView extends View{
 			viewHeight = getHeight();
 			setRadius();
 			
-			Log.i("info", "viewWidth="+viewWidth+"viewHeight="+viewHeight);
+			LogCat.i("info", "viewWidth="+viewWidth+"viewHeight="+viewHeight);
 		}
 		
 		super.onLayout(changed, left, top, right, bottom);
@@ -213,7 +214,7 @@ public class LockScreenView extends View{
 			endY = (int)event.getY();
 			isPressedDown = false;
 
-			Log.i("info", "lockPin = "+lockPin);
+			LogCat.i("info", "lockPin = "+lockPin);
 			Password.lockPin = lockPin;
 			clearSelected();
 			invalidate();

@@ -5,11 +5,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import com.txh.Api.sqlite;
-
 import android.app.Application;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -17,20 +16,27 @@ import android.database.Cursor;
 import android.os.Process;
 import android.provider.ContactsContract;
 import android.telephony.TelephonyManager;
-import android.util.Log;
-import android.widget.Toast;
+
+import com.ijustyce.unit.LogCat;
+import com.ijustyce.unit.toast;
+import com.txh.Api.sqlite;
 
 public class txApplication extends Application {
 
 	private static String tag = "txTag";
 	private String dbFile; 
 	public String sharedName = "shared";
-	public boolean pw = false;	
+	public boolean pw = false;
+	public static Intent Main;
 	@Override
 	public void onCreate() {
 		
 		firstUse();
-		Log.i(tag, "Application onCreate , pid = " + Process.myPid());
+		LogCat.i(tag, "Application onCreate , pid = " + Process.myPid());
+	}
+	
+	public void setMainActivity(Intent intent){
+		Main = intent;
 	}
 	
 	/**
@@ -44,7 +50,7 @@ public class txApplication extends Application {
 		if(themeString.equals("")){
 			return "";
 		}
-		Log.i(tag, themeString);
+		LogCat.i(tag, themeString);
 		
 		if (themeString.equals("sky")) {
 			
@@ -74,6 +80,20 @@ public class txApplication extends Application {
 	}
 	
 	/**
+	 * read preferences file and return value if possible or return 0
+	 * @param value 
+	 * @param fileName
+	 * @return
+	 */
+	public int getPreferencesInt(String key ,String fileName){
+		
+		SharedPreferences shared = getSharedPreferences(fileName,
+				Context.MODE_PRIVATE);
+		
+		return shared.getInt(key, 0);
+	}
+	
+	/**
 	 *  set preferences file value
 	 * @param key key of preference file 
 	 * @param value value of key
@@ -85,6 +105,20 @@ public class txApplication extends Application {
 				Context.MODE_PRIVATE);
 		
 		shared.edit().putString(key, value).commit();
+	}
+	
+	/**
+	 *  set preferences file value
+	 * @param key key of preference file 
+	 * @param value value of key
+	 * @param fileName preference file name
+	 */
+	public void setPreferencesInt(String key , int value , String fileName){
+		
+		SharedPreferences shared = getSharedPreferences(fileName,
+				Context.MODE_PRIVATE);
+		
+		shared.edit().putInt(key, value).commit();
 	}
 	
 	
@@ -117,11 +151,11 @@ public class txApplication extends Application {
 		File dbFile = new File(getDbFile());
 		if(!dbFile.exists()){
 			createTable();
-			Log.i(tag, "this is first time to use");
+			LogCat.i(tag, "this is first time to use");
 			return true;
 		}
 		
-		Log.i(tag, "this is not the first time to use");
+		LogCat.i(tag, "this is not the first time to use");
 		return false;
 	}
 	
@@ -138,7 +172,7 @@ public class txApplication extends Application {
 			f.mkdir();
 		}
 		dbFile = file + "/contacts.db";
-		Log.i(tag, dbFile);
+		LogCat.i(tag, dbFile);
 		return dbFile;
 	}
 	
@@ -151,8 +185,8 @@ public class txApplication extends Application {
 	public String getAnim(){
 		
 		SharedPreferences myshared = getSharedPreferences();
-		String anim = myshared.getString("anim", "ubuntu");
-		Log.i(tag, "anim: "+anim);
+		String anim = myshared.getString("anim", "zoom");
+		LogCat.i(tag, "anim: "+anim);
 		return anim;
 	}
 	
@@ -251,7 +285,7 @@ public class txApplication extends Application {
 				getSystemService(Context.TELEPHONY_SERVICE); 
 		String number = mngr.getLine1Number();
 	    
-	    Log.i("---justyce---", "phone number :"+number);
+	    LogCat.i("---justyce---", "phone number :"+number);
 	    return number;
 	}
 	
@@ -281,14 +315,13 @@ public class txApplication extends Application {
 	 */
 	public void showToast(String s) {
 
-		Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+		toast.show(getBaseContext(), s);
 	}
 	
 	/**
 	 * set text to clipboard 
 	 * @param text the text set to clipboard 
 	 */
-	@SuppressWarnings("deprecation")
 	public void setClipboard(String text){
 		
 		ClipboardManager clipboard = (ClipboardManager)getSystemService
@@ -302,7 +335,6 @@ public class txApplication extends Application {
 	 * get clipboard text
 	 * @return clipboard text
 	 */
-	@SuppressWarnings("deprecation")
 	public String getClipboard(){
 		
 		ClipboardManager clipboard = (ClipboardManager)getSystemService
@@ -321,6 +353,7 @@ public class txApplication extends Application {
 		String dbFile = getDbFile();	
 		String[] intercept = {"value"};
 		String[] sms = {"phone" , "content" , "ismy"};
+		String[] phone = {"phone" , "content" , "ismy" , "total"};
 		String[] recent = {"phone"};
 		String[] timing = {"phone" , "content" , "year" ,"month" , 
 				"day" ,"hour" , "minute"};
@@ -328,7 +361,7 @@ public class txApplication extends Application {
 		api.createTable("intercept", intercept , dbFile);		
 		api.createTable("words", intercept , dbFile);	
 		api.createTable("sms", sms , dbFile);
-		api.createTable("phone", sms , dbFile);
+		api.createTable("phone", phone , dbFile);
 		api.createTable("recent", recent , dbFile);	
 		api.createTable("timing", timing, dbFile);
 		
